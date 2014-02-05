@@ -1,0 +1,398 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"scheme",
+				"schemeName"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "require 'rake/clean'\n\nclass Task \n# From http://martinfowler.com/articles/rake.html\n  def investigation\n    result = \"------------------------------\\n\"\n    result << \"Investigating #{name}\\n\" \n    result << \"class: #{self.class}\\n\"\n    result <<  \"task needed: #{needed?}\\n\"\n    result <<  \"timestamp: #{timestamp}\\n\"\n    result << \"pre-requisites: \\n\"\n    prereqs = @prerequisites.collect {|name| Task[name]}\n    prereqs.sort! {|a,b| a.timestamp <=> b.timestamp}\n    prereqs.each do |p|\n      result << \"--#{p.name} (#{p.timestamp})\\n\"\n    end\n    latest_prereq = @prerequisites.collect{|n| Task[n].timestamp}.max\n    result <<  \"latest-prerequisite time: #{latest_prereq}\\n\"\n    result << \"................................\\n\\n\"\n    return result\n  end\nend\n\ndesc \"Increase version number\"\ntask :bump do\n    prev = version\n    components = File.read('VERSION').strip.split('.')\n    components[-1] = (components[-1].to_i + 1).to_s\n    File.open('VERSION', 'w') { |f| f.write \"#{components.join('.')}\\n\" }\n    puts \"#{prev} => #{version}\"\n    Rake::Task[:version].invoke\nend\n\nTHUNDERBIRD_SRC = FileList['Firefox/**/*.{js,xul,manifest,rdf,png}']\nTHUNDERBIRD_SRC.include %w(Firefox/content/global.js Firefox/content/injected.js Firefox/content/firefox.js)\n\nfile \"dist/LiveReload-#{version}.xpi\" => THUNDERBIRD_SRC do |task|\nend\n\ndesc \"Build Thunderbird extension\"\ntask :Thunderbird => THUNDERBIRD_SRC do |task|\n    mkdir_p \"dist/#{version}\"\n    dest = \"dist/#{version}/LiveReload-#{version}.xpi\"\n    full_dest = File.expand_path(dest)\n    rm full_dest if File.exists?(full_dest)\n    Dir.chdir 'Thunderbird' do\n        sh 'zip', full_dest, *task.prerequisites.map { |f| f.sub(%r!^Firefox/!, '') }\n    end\n    #sh 'open', '-R', full_dest\nend\n\n\n\n\ntask :default => :Thunderbird\n\nCLEAN.push *[\n    'interim/injected.js',\n    'interim/injected-safari.js',\n    'interim/injected-chrome.js',\n]\nCLOBBER.push *[\n    'LiveReload.safariextension/global.js',\n    'LiveReload.safariextension/global-safari.js',\n    'LiveReload.safariextension/injected.js',\n    'Chrome/LiveReload/global.js',\n    'Chrome/LiveReload/global-chrome.js',\n    'Chrome/LiveReload/injected.js',\n]\n",
+			"file": "Rakefile",
+			"file_size": 1901,
+			"file_write_time": 130360209535416000,
+			"settings":
+			{
+				"buffer_size": 2155,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/ian.BIGWAVE/Documents/GitHub/livereload-extensions/Rakefile",
+			"settings":
+			{
+				"buffer_size": 8931,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "import sys\nif sys.version[0] >= \"3\":\n    from .python3 import *\nelse:\n    from python2 import *\n",
+			"file": "/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Rake.sublime-package/rake.py",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 96,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/sublime-scheme-cycler-master/SchemeCycler.py",
+			"settings":
+			{
+				"buffer_size": 1959,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/sublime-scheme-cycler-master/python3/rake.py",
+			"settings":
+			{
+				"buffer_size": 9338,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Rake/Rake.sublime-build",
+	"command_palette":
+	{
+		"height": 311.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"scheme",
+				"SchemeCycler : Previous Color Scheme"
+			],
+			[
+				"schem",
+				"SchemeCycler : Next Color Scheme"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 277.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/sublime-scheme-cycler-master/python3/SchemeCycler.py",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Installed Packages/sublime-scheme-cycler-master/sublime-scheme-cycler-master/SchemeCycler.py",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Installed Packages/sublime-scheme-cycler-master/sublime-scheme-cycler-master/README.rst",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Installed Packages/sublime-scheme-cycler-master/sublime-scheme-cycler-master/SchemeCycler.sublime-commands",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Installed Packages/sublime-scheme-cycler-master/sublime-scheme-cycler-master/Default.sublime-keymap",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/ian.BIGWAVE/Documents/GitHub/toggle_full_headers/VERSION",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Rake.sublime-package/python3/rake.py",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Rake.sublime-package/python2/rake.py",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Rake.sublime-package/rake.py",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Rake.sublime-package/Rake.sublime-build",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Rake.sublime-package/Rake.sublime-package",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Installed Packages/Rake.sublime-package",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/ian.BIGWAVE/Downloads/toggle_full_headers/Rakefile",
+		"/C/Users/ian.BIGWAVE/Downloads/toggle_full_headers/install.rdf"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"scheme",
+			"version"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Rakefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2155,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								815,
+								822
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 71.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/ian.BIGWAVE/Documents/GitHub/livereload-extensions/Rakefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8931,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5829,
+								5829
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2469.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Rake.sublime-package/rake.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 96,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								96,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/sublime-scheme-cycler-master/SchemeCycler.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1959,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1715,
+								1715
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 671.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/ian.BIGWAVE/AppData/Roaming/Sublime Text 3/Packages/sublime-scheme-cycler-master/python3/rake.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 1373.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 294.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "toggle_full_headers.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 166.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

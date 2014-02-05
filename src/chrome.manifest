@@ -1,0 +1,5 @@
+content   toggle_full_headers                 chrome/content/
+skin      toggle_full_headers   classic/1.0   chrome/skin/
+locale    toggle_full_headers   en-US         chrome/locale/en-US/
+overlay	chrome://browser/content/browser.xul	chrome://toggle_full_headers/content/ff-overlay.xul
+style	chrome://global/content/customizeToolbar.xul	chrome://toggle_full_headers/skin/overlay.css

@@ -1,0 +1,21 @@
+/* View All Headers */
+
+#ViewAllHeaders { list-style-image: url("chrome://viewheaders/skin/viewheaders_24.png"); }
+toolbar[iconsize="small"] #ViewAllHeaders { list-style-image: url("chrome://viewheaders/skin/viewheaders_16.png");}
+
+/* View Normal Headers */
+
+#ViewNormalHeaders { list-style-image: url("chrome://viewheaders/skin/viewheaders_24.png"); }
+toolbar[iconsize="small"] #ViewNormalHeaders { list-style-image: url("chrome://viewheaders/skin/viewheaders_16.png"); }
+
+
+/* Dummy's for locale work around */
+
+#ViewAllHeaders-dummy { list-style-image: url("chrome://viewheaders/skin/viewheaders_24.png"); }
+toolbar[iconsize="small"] #ViewAllHeaders-dummy { list-style-image: url("chrome://viewheaders/skin/viewheaders_16.png"); }
+
+#ViewNormalHeaders-dummy { list-style-image: url("chrome://viewheaders/skin/viewheaders_24.png"); }
+toolbar[iconsize="small"] #ViewNormalHeaders-dummy { list-style-image: url("chrome://viewheaders/skin/viewheaders_16.png"); }
+
+#ViewHeadersDesc-dummy { list-style-image: url("chrome://viewheaders/skin/viewheaders_24.png"); }
+toolbar[iconsize="small"] #ViewHeadersDesc-dummy { list-style-image: url("chrome://viewheaders/skin/viewheaders_16.png"); }
