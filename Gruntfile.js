@@ -11,23 +11,34 @@ module.exports = function(grunt) {
         compress: {
             main: {
                 options: {
-                    archive: 'dist/<%= pkg.name %>-<%= pkg.version %>.zip',
-                    mode: 'zip',
-                    pretty: true
+                    archive: 'dist/<%= pkg.name %>-<%= pkg.version %>.xpi',
+                    mode: 'zip'
                 },
-                expand: true,
-                cwd: 'src/',
-                src: '**/*',
-                dest: '../dist'
+                files: [{
+                    expand: true,
+                    cwd: 'build/',
+                    src: ['**']
+                }]
             }
+        },
+        copy: {
+            options: {
+                process: function(content, path) {
+                    return grunt.template.process(content);
+                }
             },
+            common: {
+                 expand: true,
+                 cwd: 'src/',
+                src: '**',
+                dest: 'build/'
+            }
+        },
 
-
-        clean: [ 'dist']
+        clean: ['./dist/', './build/']
     });
 
     require('load-grunt-tasks')(grunt);
 
-    grunt.registerTask('default', ['clean', 'compress']);
+    grunt.registerTask('default', ['clean', 'copy:common', 'compress']);
 };
-

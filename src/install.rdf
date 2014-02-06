@@ -4,9 +4,9 @@
     <Description about="urn:mozilla:install-manifest">
         <em:type>2</em:type> <!-- 2 : Extension -->
         <em:id>togglefullheader@gmail.com</em:id>
-        <em:version>0.0.1</em:version>
-        <em:name>Toggle Full Headers</em:name>
-        <em:creator>I Fraser</em:creator>
+        <em:version><%= pkg.version %></em:version>
+        <em:name><%= pkg.name %></em:name>
+        <em:creator><%= pkg.author.name %></em:creator>
         <em:targetApplication>
             <Description>
                 <!-- Thunderbird -->
