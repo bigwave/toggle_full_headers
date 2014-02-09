@@ -1,0 +1,5 @@
+<!-- labels -->
+<!ENTITY toggleHeadersButtons.hdrToggleHeadersButton             "Toggle Headers">
+
+<!-- tooltips -->
+<!ENTITY toggleHeadersButtons.tooltips.hdrToggleHeadersButton    "Toggle Headers">

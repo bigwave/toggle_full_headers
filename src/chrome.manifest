@@ -1,15 +1,11 @@
-overlay	chrome://messenger/content/messenger.xul		chrome://phoenityButtons/content/phoenityButtons.xul
-overlay	chrome://messenger/content/messageWindow.xul		chrome://phoenityButtons/content/phoenityButtons.xul
-overlay	chrome://messenger/content/msgHdrViewOverlay.xul	chrome://phoenityButtons/content/phoenityButtons.xul	
-overlay	chrome://global/content/customizeToolbar.xul		chrome://phoenityButtons/content/phoenityButtons.xul	
+overlay	chrome://messenger/content/messenger.xul		chrome://toggleHeadersButtons/content/toggleHeadersButtons.xul
+overlay	chrome://messenger/content/messageWindow.xul		chrome://toggleHeadersButtons/content/toggleHeadersButtons.xul
+overlay	chrome://messenger/content/msgHdrViewOverlay.xul	chrome://toggleHeadersButtons/content/toggleHeadersButtons.xul	
+overlay	chrome://global/content/customizeToolbar.xul		chrome://toggleHeadersButtons/content/toggleHeadersButtons.xul	
 
-style	chrome://global/content/customizeToolbar.xul		chrome://phoenityButtons/skin/phoenityButtons.css
+style	chrome://global/content/customizeToolbar.xul		chrome://toggleHeadersButtons/skin/toggleHeadersButtons.css
 
-content	phoenityButtons		content/
-locale	phoenityButtons	en-US	locale/en-US/
+content	toggleHeadersButtons		content/
+locale	toggleHeadersButtons	en-US	locale/en-US/
 
-skin	phoenityButtons		classic/1.0	skin/
-skin	twistyBox		classic/1.0	linux/
-skin	twistyBox		classic/1.0	darwin/		os=Darwin
-skin	twistyBox		classic/1.0	windows/	os=WINNT
-skin	twistyBox		classic/1.0	aero/		os=WINNT	osversion>=6
+skin	toggleHeadersButtons		classic/1.0	skin/

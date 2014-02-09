@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://toggleHeadersButtons/skin/toggleHeadersButtons.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://toggleHeadersButtons/locale/toggleHeadersButtons.dtd">
+<overlay id="Overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script src="chrome://global/content/globalOverlay.js"/>
+<script src="chrome://toggleHeadersButtons/content/toggleHeadersButtons.js"/>
+
+<toolbar id="header-view-toolbar"
+         defaultset="th_hdrToggleHeadersButton">
+ <toolbarbutton id="th_hdrToggleHeadersButton"
+                class="toolbarbutton-1 msgHeaderView-button hdrToggleHeadersButton"
+                label="&toggleHeadersButtons.hdrToggleHeadersButton;"
+                tooltiptext="&toggleHeadersButtons.tooltips.hdrToggleHeadersButton;"
+                removable="true"
+                oncommand="toggleHeadersButtons.toggleHeaders();"
+                position="2">
+ </toolbarbutton>
+</toolbar>
+</overlay>

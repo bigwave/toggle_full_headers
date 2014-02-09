@@ -1,7 +1,0 @@
-<!-- labels -->
-<!ENTITY phoenityButtons.hdrOtherActionsButton             "Toggle Headers">
-<!ENTITY phoenityButtons.viewallheaders                    "View All Headers">
-<!ENTITY phoenityButtons.viewnormalheaders                 "View Normal Headers">
-
-<!-- tooltips -->
-<!ENTITY phoenityButtons.tooltips.hdrOtherActionsButton    "Other Actions">

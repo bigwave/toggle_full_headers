@@ -1,8 +1,8 @@
-if ("undefined" == typeof(phoenityButtons)) {
-  var phoenityButtons = {};
+if ("undefined" == typeof(toggleHeadersButtons)) {
+  var toggleHeadersButtons = {};
 };
 
-phoenityButtons = {
+toggleHeadersButtons = {
 
 
 toggleHeaders: function()
