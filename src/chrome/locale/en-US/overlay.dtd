@@ -1,8 +1,0 @@
-<!ENTITY toggle_full_headers.label "Your localized menuitem">
-<!ENTITY toggle_full_headersContext.label "Your Menuitem">
-<!ENTITY toggle_full_headersContext.accesskey "Y">
-<!ENTITY toggle_full_headersToolbarButton.label "Your Toolbar Button">
-<!ENTITY toggle_full_headersToolbarButton.tooltip "This is your toolbar button!">
-<!ENTITY toggle_full_headersSidebar.label "Your Sidebar">
-<!ENTITY toggle_full_headersToolbar.name  "example">
-<!ENTITY toggle_full_headersToolbar.label "This is an example toolbar. You can hide it under View &gt; toolbars &gt; &toggle_full_headersToolbar.name;">

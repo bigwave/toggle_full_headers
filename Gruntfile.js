@@ -4,7 +4,7 @@
 module.exports = function(grunt) {
     'use strict';
 
-
+ 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -25,7 +25,8 @@ module.exports = function(grunt) {
             options: {
                 process: function(content, path) {
                     return grunt.template.process(content);
-                }
+                },
+                 noProcess: '**/*.png'
             },
             common: {
                  expand: true,

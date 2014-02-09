@@ -1,0 +1,24 @@
+/* OS Specific styles & fixes */
+
+#phb_twistyBox {
+  border: 0px solid transparent !important;
+  background-color: transparent !important;
+}
+
+#phb_compactTwisty {
+  margin: 5px 0px !important;
+}
+
+#phb_compactTwisty .button-box {
+  border: 1px solid transparent !important;
+  padding: 1px 4px 2px 3px !important;
+}
+
+#messengerWindow:not([tabsintitlebar]) .titlebar-placeholder[type="caption-buttons"] {
+  display: none;
+}
+
+/* Phoenity Buttons */
+
+#phb_hdrOtherActionsButton {
+  list-style-image: url("chrome://phoenityButtons/skin/aero/otherActions.png")}

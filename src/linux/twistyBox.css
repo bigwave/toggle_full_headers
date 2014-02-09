@@ -1,0 +1,10 @@
+/* OS Specific styles & fixes */
+
+#phb_drawTabsInTitlebarSeparator,
+#phb_drawTabsInTitlebar {
+  display:none
+}
+
+#phb_hdrOtherActionsButton {
+  list-style-image: url("chrome://phoenityButtons/skin/linux/otherActions.png");
+}

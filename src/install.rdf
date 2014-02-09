@@ -15,7 +15,7 @@
                 <em:maxVersion>30.0</em:maxVersion>
             </Description>
         </em:targetApplication>
-        <em:optionsURL>chrome://toggle_full_headers/content/options.xul</em:optionsURL>
         <em:aboutURL>chrome://toggle_full_headers/content/about.xul</em:aboutURL>
+        <em:homepageURL>https://github.com/bigwave/toggle_full_headers/</em:homepageURL>
     </Description>
 </RDF>

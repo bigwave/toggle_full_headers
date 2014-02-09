@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://phoenityButtons/skin/phoenityButtons.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://phoenityButtons/locale/phoenityButtons.dtd">
+<overlay id="Overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script src="chrome://global/content/globalOverlay.js"/>
+<script src="chrome://phoenityButtons/content/phoenityButtons.js"/>
+
+<!--
+<div id="expandedHeadersTopBox">
+ <toolbox id="phb_twistyBox"
+          position="1">
+  <button id="phb_compactTwisty"
+          type="checkbox"
+          onload="phoenityButtons.loadPhoenity();"
+          oncommand="phoenityButtons.toggleHeaders();"/>
+ </toolbox>
+</div>
+
+<toolbar id="mail-toolbar-menubar2"
+         context="phb_menubar2-context-menu">
+ <menupopup id="phb_menubar2-context-menu"
+            onpopupshowing="onViewToolbarsPopupShowing(event, 'mail-toolbox');">
+  <menuseparator id="phb_iconsize-menubar2MenuSeparator"/>
+  <menuitem id="phb_iconsize-menubar2"
+            type="checkbox"
+            label="&phoenityButtons.usesmallicons;"
+            oncommand="phoenityButtons.toggleIconSize2();"/>
+  <menuseparator id="phb_customizeMailToolbar2MenuSeparator"/>
+  <menuitem id="phb_CustomizeMailToolbar2"
+            oncommand="CustomizeMailToolbar('mail-toolbox', 'CustomizeMailToolbar');"
+            label="&phoenityButtons.customizeToolbar;"/>
+ </menupopup>
+</toolbar>
+
+<toolbar id="mail-bar3"
+         context="phb_mailbar3-context-menu">
+ <menupopup id="phb_mailbar3-context-menu"
+            onpopupshowing="onViewToolbarsPopupShowing(event, 'mail-toolbox');">
+  <menuseparator id="phb_iconsize-mailbar3MenuSeparator"/>
+  <menuitem id="phb_iconsize-mailbar3"
+            type="checkbox"
+            label="&phoenityButtons.usesmallicons;"
+            oncommand="phoenityButtons.toggleIconSize3();"/>
+  <menuseparator id="phb_customizeMailToolbar3MenuSeparator"/>
+  <menuitem id="phb_CustomizeMailToolbar3"
+            oncommand="CustomizeMailToolbar('mail-toolbox', 'CustomizeMailToolbar');"
+            label="&phoenityButtons.customizeToolbar;"/>
+ </menupopup>
+</toolbar>
+
+<toolbar id="chat-toobar"
+         context="phb_chatbar4-context-menu"
+         defaultset="button-add-buddy,button-join-chat,spacer,chat-status-selector,button-chat-accounts,spacer,gloda-im-search">
+ <menupopup id="phb_chatbar4-context-menu"
+            onpopupshowing="onViewToolbarsPopupShowing(event, 'mail-toolbox');">
+  <menuseparator id="phb_iconsize-chatbar4MenuSeparator"/>
+  <menuitem id="phb_iconsize-chatbar4"
+            type="checkbox"
+            label="&phoenityButtons.usesmallicons;"
+            oncommand="phoenityButtons.toggleIconSize4();"/>
+  <menuseparator id="phb_customizeMailToolbar4MenuSeparator"/>
+  <menuitem id="phb_CustomizeMailToolbar4"
+            oncommand="CustomizeMailToolbar('chat-view-toolbox', 'CustomizeChatToolbar')"
+            label="&phoenityButtons.customizeToolbar;"/>
+ </menupopup>
+</toolbar>
+
+<toolbox id="navigation-toolbox">
+ <menupopup id="phb_tabbar-context-menu"
+            onpopupshowing="onViewToolbarsPopupShowing(event, 'mail-toolbox');">
+  <menuseparator id="phb_drawTabsInTitlebarSeparator"/>
+  <menuitem id="phb_drawTabsInTitlebar"
+            type="checkbox"
+            oncommand="phoenityButtons.drawTabsInTitlebar();"
+            label="&phoenityButtons.drawTabsInTitlebar;"/>
+  <menuseparator id="phb_customizeMailTabbarMenuSeparator"/>
+  <menuitem id="phb_CustomizeMailTabbar"
+            oncommand="CustomizeMailToolbar('mail-toolbox', 'CustomizeMailToolbar');"
+            label="&phoenityButtons.customizeToolbar;"/>
+ </menupopup>
+</toolbox>
+
+<toolbar id="tabs-toolbar">
+ <toolbar id="phb_pretab-toolbar" toolboxid="mail-toolbox"
+          insertbefore="tabcontainer"
+          context="phb_tabbar-context-menu"
+          customizable="true"
+          mode="icons" defaultmode="icons" lockmode="true"
+          iconsize="small" defaulticonsize="small" lockiconsize="true"
+          defaultset="button-appmenu"/>
+</toolbar>
+
+<tabs id="tabcontainer"
+      context="phb_tabbar-context-menu"/>
+
+<toolbar id="tabbar-toolbar"
+         context="phb_tabbar-context-menu"/>
+
+<toolbarbutton id="alltabs-button"
+         context="phb_tabbar-context-menu"/>
+-->
+<toolbar id="header-view-toolbar"
+         defaultset="hdrSmartReplyButton,hdrForwardButton,hdrJunkButton,hdrTrashButton,phb_hdrOtherActionsButton">
+ <toolbarbutton id="phb_hdrOtherActionsButton"
+                class="toolbarbutton-1 msgHeaderView-button hdrOtherActionsButton"
+                label="&phoenityButtons.hdrOtherActionsButton;"
+                tooltiptext="&phoenityButtons.tooltips.hdrOtherActionsButton;"
+                removable="true"
+                oncommand="phoenityButtons.toggleHeaders();"
+                position="2">
+ </toolbarbutton>
+</toolbar>
+
+<popup id="header-toolbar-context-menu"
+       onpopupshowing="InitViewHeadersMenu();">
+ <menuitem id="CustomizeHeaderToolbar"/>
+ <menuseparator id="phb_header-view-separator"/>
+ <menuitem id="viewallheaders"
+           type="radio"
+           name="viewheadergroup"
+           label="&phoenityButtons.viewallheaders;"
+           command="cmd_viewAllHeader"/>
+ <menuitem id="viewnormalheaders"
+           type="radio"
+           name="viewheadergroup"
+           label="&phoenityButtons.viewnormalheaders;"
+           command="cmd_viewNormalHeader"/>
+</popup>
+<!--
+<vbox id="otherActionsBox"
+      align="start"/>
+
+<button id="otherActionsButton"
+        tooltiptext="other actions"/>
+
+<menupopup id="menu_FilePopup">
+ <menuitem
+ id="phb_menu_RestartThunderbird"
+ insertbefore="menu_FileQuitItem"
+ label="&phoenityButtons.restartThunderbird;"
+ oncommand="Application.restart();"/>
+</menupopup>
+
+<vbox id="appmenuPrimaryPane">
+ <menuitem
+ id="phb_appmenu_restart"
+ insertafter="appmenu-quit"
+ label="&phoenityButtons.restartThunderbird;"
+ oncommand="Application.restart();"/>
+</vbox>
+
+<toolbarpalette id="MailToolbarPalette">
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_nextUnreadThread"
+observes="button_next"
+label="&phoenityButtons.nextUnreadThread;"
+tooltiptext="&phoenityButtons.tooltips.nextUnreadThread;"
+oncommand="phoenityButtons.nextUnreadThread();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_nextUnreadGroup"
+observes="button_next"
+label="&phoenityButtons.nextUnreadGroup;"
+tooltiptext="&phoenityButtons.tooltips.nextUnreadGroup;"
+oncommand="phoenityButtons.nextUnreadGroup();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_killThread"
+observes="button_forward"
+label="&phoenityButtons.killThread;"
+tooltiptext="&phoenityButtons.tooltips.killThread;"
+command="cmd_killThread"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_viewIgnoredThreads"
+observes="button_next"
+label="&phoenityButtons.viewIgnoredThreads;"
+tooltiptext="&phoenityButtons.tooltips.viewIgnoredThreads;"
+oncommand="phoenityButtons.viewIgnoredThreads();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_toggleMessagePane"
+observes="button_next"
+label="&phoenityButtons.toggleMessagePane;"
+tooltiptext="&phoenityButtons.tooltips.toggleMessagePane;"
+oncommand="MsgToggleMessagePane();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_toggleHTML"
+label="&phoenityButtons.toggleHTML;"
+tooltiptext="&phoenityButtons.tooltips.toggleHTML;"
+oncommand="phoenityButtons.toggleHTML();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_toggleInline"
+label="&phoenityButtons.toggleInline;"
+tooltiptext="&phoenityButtons.tooltips.toggleInline;"
+oncommand="phoenityButtons.toggleInline();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_toggleSummary"
+label="&phoenityButtons.toggleSummary;"
+tooltiptext="&phoenityButtons.tooltips.toggleSummary;"
+oncommand="phoenityButtons.toggleSummary();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_configEditor"
+label="&phoenityButtons.configEditor;"
+tooltiptext="&phoenityButtons.tooltips.configEditor;"
+oncommand="phoenityButtons.configEditor();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_downloadManager"
+label="&phoenityButtons.downloadManager;"
+tooltiptext="&phoenityButtons.tooltips.downloadManager;"
+oncommand="openSavedFilesWnd();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_activityManager"
+label="&phoenityButtons.activityManager;"
+tooltiptext="&phoenityButtons.tooltips.activityManager;"
+oncommand="openActivityMgr();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_addonsManager"
+label="&phoenityButtons.addonsManager;"
+tooltiptext="&phoenityButtons.tooltips.addonsManager;"
+oncommand="openAddonsMgr();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_filterManager"
+label="&phoenityButtons.filterManager;"
+tooltiptext="&phoenityButtons.tooltips.filterManager;"
+oncommand="MsgFilters();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_errorConsole"
+label="&phoenityButtons.errorConsole;"
+tooltiptext="&phoenityButtons.tooltips.errorConsole;"
+oncommand="toJavaScriptConsole();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_closeThunderbird"
+label="&phoenityButtons.closeThunderbird;"
+tooltiptext="&phoenityButtons.tooltips.closeThunderbird;"
+command="cmd_quit"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_restartThunderbird"
+label="&phoenityButtons.restartThunderbird;"
+tooltiptext="&phoenityButtons.tooltips.restartThunderbird;"
+oncommand="Application.restart();"/>
+
+<toolbarbutton
+class="toolbarbutton-1 phoenitybutton"
+id="phb_showCookies"
+label="&phoenityButtons.showCookies;"
+tooltiptext="&phoenityButtons.tooltips.showCookies;"
+oncommand="phoenityButtons.showCookies();"/>
+</toolbarpalette>
+-->
+
+</overlay>

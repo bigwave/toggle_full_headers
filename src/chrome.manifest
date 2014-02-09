@@ -1,5 +1,15 @@
-content   toggle_full_headers                 chrome/content/
-skin      toggle_full_headers   classic/1.0   chrome/skin/
-locale    toggle_full_headers   en-US         chrome/locale/en-US/
-overlay	chrome://browser/content/browser.xul	chrome://toggle_full_headers/content/ff-overlay.xul
-style	chrome://global/content/customizeToolbar.xul	chrome://toggle_full_headers/skin/overlay.css
+overlay	chrome://messenger/content/messenger.xul		chrome://phoenityButtons/content/phoenityButtons.xul
+overlay	chrome://messenger/content/messageWindow.xul		chrome://phoenityButtons/content/phoenityButtons.xul
+overlay	chrome://messenger/content/msgHdrViewOverlay.xul	chrome://phoenityButtons/content/phoenityButtons.xul	
+overlay	chrome://global/content/customizeToolbar.xul		chrome://phoenityButtons/content/phoenityButtons.xul	
+
+style	chrome://global/content/customizeToolbar.xul		chrome://phoenityButtons/skin/phoenityButtons.css
+
+content	phoenityButtons		content/
+locale	phoenityButtons	en-US	locale/en-US/
+
+skin	phoenityButtons		classic/1.0	skin/
+skin	twistyBox		classic/1.0	linux/
+skin	twistyBox		classic/1.0	darwin/		os=Darwin
+skin	twistyBox		classic/1.0	windows/	os=WINNT
+skin	twistyBox		classic/1.0	aero/		os=WINNT	osversion>=6
